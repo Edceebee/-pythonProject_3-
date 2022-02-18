@@ -50,49 +50,47 @@ def connect_insert():
             print('Disconnected from database')
 
 
-
 # call the function we just created
 connect_insert()
 
+define the connector function
+def connect_fetch():
+    """ function to connect and fetch rows in a database"""
 
-# define the connector function
-# def connect_fetch():
-#     """ function to connect and fetch rows in a database"""
-#
-#     # create a variable for the connector object
-#     conn = None
-#
-#     try:
-#         conn = mysql.connector.Connect(
-#             host='localhost',
-#             database='cape_codd',
-#             user='Star_boy',
-#             password='nonibee')
-#
-#         # what to display once connection is succesfull
-#         print("\n Connected to the database")
-#
-#         # select query
-#         sql_select_query = "select * from buyer"
-#         # cursor variable
-#         cursor = conn.cursor()
-#         cursor.execute(sql_select_query)
-#         records = cursor.fetchall()
-#
-#         # print select output
-#         print("\n Printing each buyer record")
-#         for rows in records:
-#             print("Buyer name:", rows[0])
-#             print("Department:", rows[0])
-#             print("Position:", rows[0])
-#             print("Supervisor:", rows[0])
-#
-#     except Error as e:
-#         print('Not connecting due to: ', e)
-#     finally:
-#         if conn is not None and conn.is_connected():
-#             conn.close()
-#             print('database shutdown!!, welldone star_boy')
-#
-#
-# connect_fetch()
+    # create a variable for the connector object
+    conn = None
+
+    try:
+        conn = mysql.connector.Connect(
+            host='localhost',
+            database='cape_codd',
+            user='Star_boy',
+            password='nonibee')
+
+        # what to display once connection is succesfull
+        print("\n Connected to the database")
+
+        # select query
+        sql_select_query = "select * from buyer"
+        # cursor variable
+        cursor = conn.cursor()
+        cursor.execute(sql_select_query)
+        records = cursor.fetchall()
+
+        # print select output
+        print("\n Printing each buyer record")
+        for rows in records:
+            print("Buyer name:", rows[0])
+            print("Department:", rows[0])
+            print("Position:", rows[0])
+            print("Supervisor:", rows[0])
+
+    except Error as e:
+        print('Not connecting due to: ', e)
+    finally:
+        if conn is not None and conn.is_connected():
+            conn.close()
+            print('database shutdown!!, welldone star_boy')
+
+
+connect_fetch()
